@@ -1,0 +1,990 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5, p{
+  font-family: "ABC monument";
+  line-height: 120%;
+  font-weight: 400;
+}
+
+
+
+/* ==================================================
+   VARIABLES DEL PROYECTO
+================================================== */
+
+:root {
+    --color-brown: #342623;
+    --color-ivory: #D9E1EB;
+    --color-blue: #218FCC;
+    --color-green: #6A9254;
+    --color-darkgreen: #245D4B;
+}
+
+/* ==================================================
+   TIPOGRAFIAS
+================================================== */
+
+@font-face {
+  font-family: "ABC monument";
+  src: url("./assets/fonts/ABCMonumentGrotesk-Regular.otf") format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "ABC monument";
+  src: url("./assets/fonts/ABCMonumentGrotesk-Bold.otf") format('opentype');
+  font-weight: 700;
+}
+
+/* ==================================================
+   Nav bar
+================================================== */
+
+.browser-tabs {
+  display: flex;
+  gap: 2px;
+  background-color: #D9E1EB;
+  padding: 16px 24px 0 0px;
+
+}
+
+.browser-tabs a {
+  position: relative;
+  background: var(--tab-bg-inactive);
+  color: var(--color-ivory);
+  width: 15rem;
+  text-decoration: none;
+  border-bottom: none;
+  border-radius: 0px 10px 0 0;
+  padding: 8px 22px;
+  font-size: 2rem;
+  font-weight: 400;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+
+.browser-tabs a:nth-child(1) {
+  background: #342623; /* Inicio */
+}
+
+.browser-tabs a:nth-child(2) {
+  background: #218FCC; /* Tres Puntos */
+}
+
+.browser-tabs a:nth-child(3) {
+  background: #6A9254; /* Jimena */
+}
+
+.browser-tabs a:nth-child(4) {
+  background: #245D4B; /* Voltium */
+}
+
+.browser-tabs a:nth-child(5) {
+  background: #218FCC; /* Keso */
+}
+
+.browser-tabs a:hover {
+  opacity: 0.6;
+}
+
+.browser-tabs a:hover {
+  background: color-mix(in srgb, #342623 90%, white);
+}
+
+.browser-tabs a.active {
+  z-index: 2;
+}
+
+/* ==================================================
+   Index
+================================================== */
+#index{
+  background-color: #342623;
+  background-image: url(./assets/img/fondo\ textura.jpg);
+  background-size: cover;
+  background-blend-mode: soft-light;
+}
+
+.arriba{
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;   /* antes: flex-end */
+  gap: 40px;
+  padding: 40px;
+}
+
+.columnaIzquierda{
+  display: flex;
+  flex-direction: column;
+  height: 500px; 
+
+}
+
+.contacto{
+  color: #FFFBFB;
+  font-size: 2.5rem;
+  padding-left: 0;
+  margin-left: 0;
+}
+ul, li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portafolioTitulo .linea1,
+.portafolioTitulo .linea2{
+  display: block;
+}
+
+.portafolioTitulo{
+  font-size: 10rem;
+  color: #FFFBFB;
+  margin-top: auto;
+}
+
+.ranaPortafolio{
+  width: 7rem;
+  margin: 2rem;
+}
+
+
+
+.imagenContacto{
+  background: #E7E7E7;      
+  padding: 3rem 3rem 5rem 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0; 
+  margin: 9rem 9rem 3rem 9rem;
+  margin-top: 2rem;
+  transition: transform 0.2s ease-out;
+  transform-origin: top center; /* el punto fijo desde donde "cuelga" y gira, como el péndulo */
+
+}
+
+.fotoGrupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fotoPerfil{
+  width: 280px;
+  height: 380px;
+  object-fit: cover;   
+  display: block;
+}
+
+.btnCV {
+  display: block;
+  width: fit-content;
+  margin: 1.5rem auto 0 auto; /* centrado debajo de la foto, con espacio arriba */
+  background-color: #218FCC;
+  color: #D9E1EB;
+  font-family: "ABC monument";
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnCV:hover {
+  background: color-mix(in srgb, #218FCC 80%, white);
+}
+
+/* About me */
+
+/* Flotado suave en bucle para ambos */
+.ranaPortafolio,
+.caraPixeleada {
+  animation: flotar 3s ease-in-out infinite;
+  transition: transform 0.2s ease; /* suaviza el efecto extra del hover */
+}
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Reacción extra al hover */
+.ranaPortafolio:hover,
+.caraPixeleada:hover {
+  transform: translateY(-8px) scale(1.1) rotate(-5deg);
+  animation-play-state: paused; /* pausa el flotado mientras haces hover, para que no compitan */
+}
+
+.aboutSeccion {
+  background-image: url(./assets/img/hoja\ cuadriculada\ a\ la\ mitad.png);
+  background-size: cover;
+  color: #342623;
+  padding: 40px;
+}
+
+.aboutMe {
+  display: flex;
+  gap: 9rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 4rem; /* espacio entre "About me" y la fila de abajo, como en tu diseño */
+}
+
+.h3Titulo{
+  font-size: 3.5rem;
+}
+
+.aboutTitulo .h4Titulo{
+  margin-top: 2rem;
+}
+
+.h4Titulo{
+  font-size: 2rem;
+}
+
+strong, b {
+  font-size: inherit;
+}
+
+.caraPixeleada{
+  width: 20rem;
+  margin-right: 5rem;
+}
+
+.parrafoAbout{
+  width: 400px;
+}
+
+/* skills*/
+
+.skills{
+  color: #FFFBFB;
+  padding: 40px;
+}
+
+.skillsFlex{
+  display: flex;
+  justify-content: center; 
+  gap: 6rem;  
+}
+
+.skillsContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de ancho igual */
+  grid-template-rows: repeat(3, 1fr);    /* 3 filas de alto igual */
+  gap: 2rem;                              /* espacio entre íconos */
+  aspect-ratio: 1 / 1;                    /* fuerza que el contenedor sea cuadrado */
+  width: 400px;                           /* ajusta el tamaño total del cuadrado */
+  margin: 0 auto; 
+  padding: 1rem;                        /* centra el contenedor en la página */
+  place-items: center;  
+  background-color: #342623;
+}
+
+.skillsContainer img,
+.fondoBlanco img {
+  transition: transform 0.2s ease;
+}
+
+.skillsContainer img:hover,
+.fondoBlanco img:hover {
+  transform: translateY(-6px) scale(1.08);
+}
+
+.skillsContainer img {
+  width: 60%;
+}
+
+.btnDesign {
+  background-color: #218FCC;
+  font-family: "ABC monument";
+  color: #FFFBFB;
+  font-size: 2rem;
+  padding: 1rem 4rem;
+  font-weight: 700;
+  border: none;      
+  cursor: pointer; 
+  margin-top: 2rem;
+}
+
+.btnDev{
+  background-color: #245D4B;
+  font-family: "ABC monument";
+  color: #FFFBFB;
+  font-size: 2rem;
+  padding: 1rem 4rem;
+  font-weight: 700;
+  border: none;      
+  cursor: pointer; 
+  margin-top: 2rem;
+}
+
+.btnDesign,
+.btnDev {
+  transition: opacity 0.2s ease;
+}
+
+.btnDesign:hover,
+.btnDev:hover {
+  opacity: 0.75;
+}
+
+@keyframes temblar {
+  0%   { transform: translateY(0) scale(1); }
+  15%  { transform: translateY(-14px) scale(1.05); }
+  30%  { transform: translateY(0) scale(0.95); }
+  45%  { transform: translateY(-8px) scale(1.03); }
+  60%  { transform: translateY(0) scale(0.97); }
+  75%  { transform: translateY(-4px) scale(1.01); }
+  90%  { transform: translateY(0) scale(1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.temblar {
+  animation: temblar 0.4s ease;
+}
+
+.skillsGrupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el botón horizontalmente bajo el cuadro */
+  gap: 1rem;            
+}
+
+.skillsDev {
+  grid-template-rows: repeat(2, 1fr); /* 2 filas para el grupo de 6 íconos */
+}
+
+/* PREMIOS */
+.premios{
+  color: #FFFBFB;
+  padding: 40px;
+}
+
+.premiosFlex{
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center; /* centra los 3 bloques como grupo en la página */
+  gap: 5rem;
+  text-align: center;
+}
+
+.premioLink {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* evita que el <a> ponga el texto azul/subrayado por defecto */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.premioLink:hover {
+  background-color: #6A9254; /* ajusta al color que quieras que tome en hover */
+  transform: translateY(-4px); /* opcional: se levanta un poco al pasar el mouse */
+}
+
+.premioLink:hover .listaPremio {
+  transform: translateY(4px); /* cancela el translateY(-4px) del padre */
+}
+
+.premioJimena,
+.premioCms,
+.premioUtag {
+  width: 400px;       /* mismo ancho fijo para los 3, ajusta a tu gusto */
+  flex-shrink: 0;      /* evita que se achiquen si no caben */
+}
+
+.imgPremio{
+  background-color: #6A9254;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondoBlanco{
+  width: 400px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  
+}
+
+.fondoBlanco img{
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.h4Premio{
+  padding: 0 0 1.5rem 0;
+  background-color: #6A9254;
+}
+
+.bloqueLista{
+  margin-top: 1.5rem;
+}
+
+
+.listaPremio {
+  list-style: none;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  text-align: left;
+  transition: none;
+}
+
+.listaPremio li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid currentColor;
+  word-wrap: break-word;
+}
+
+
+/* Languages */
+
+.languages{
+  padding: 40px;
+  color: white;
+}
+
+.containerLang{
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.containerLang:hover {
+  opacity: 0.75;
+}
+
+.containerLang::after {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%) scale(0.5);
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none; /* evita que el emoji interfiera con clics */
+}
+
+.containerLang:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.containerS::after {
+  content: "🇲🇽"; /* Spanish -> México */
+}
+
+.containerE::after {
+  content: "🇺🇸"; /* English -> EUA */
+}
+
+.containerF::after {
+  content: "🇫🇷"; /* French -> Francia */
+}
+
+.containerI::after {
+  content: "🇮🇹"; /* Italian -> Italia */
+}
+
+.containerS{
+  background-color: #245D4B;
+}
+.containerE{
+  background-color: #D9E1EB;
+  color: #218FCC;
+}
+.containerF{
+  background-color: #218FCC;
+}
+.containerI{
+  background-color: #6A9254;
+}
+
+.confetti-bandera {
+  position: fixed;
+  top: -50px;
+  z-index: 9999;
+  pointer-events: none; /* para que no bloqueen clics mientras caen */
+  animation-name: caerConfetti;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes caerConfetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+
+.languagesGrid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2/3 y 1/3 del ancho total */
+  gap: 1.5rem;
+}
+
+.containerS,
+.containerE {
+  grid-column: 1 / -1; /* ocupa desde la primera hasta la última columna = fila completa */
+}
+
+.containerF {
+  grid-column: 1; /* usa la columna de 2fr = 2/3 */
+}
+
+.containerI {
+  grid-column: 2; 
+}
+
+/* ==================================================
+   Footer
+================================================== */
+
+.footer {
+  background-color: #D9E1EB;
+  color: #245D4B;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerIzq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerNombre {
+  margin-bottom: 0.5rem;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footerLinks a {
+  color: #245D4B;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+.footerIconos {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footerIconos img {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+
+  /* Nav bar: de fila horizontal a columna, o que se pueda scrollear */
+  .browser-tabs {
+    overflow-x: auto; /* permite scroll horizontal si no caben */
+  }
+  .browser-tabs a {
+    width: auto; /* en vez de 15rem fijo */
+    padding: 8px 14px;
+  }
+
+  /* Hero: de lado a lado, a apilado */
+  .arriba {
+    flex-direction: column;
+    align-items: center;
+  }
+  .portafolioTitulo {
+    font-size: 5rem; /* baja de 10rem */
+    text-align: center;
+  }
+  .columnaIzquierda {
+    height: auto; /* quita el alto fijo */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* About: de lado a lado, a apilado */
+  .aboutMe {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .parrafoAbout {
+    width: 100%; /* en vez de 400px fijo */
+  }
+
+  /* Skills: los dos grupos apilados en vez de lado a lado */
+  .skillsFlex {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  /* Premios: apilados */
+  .premiosFlex {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;      /* <- esto es lo que falta */
+    justify-content: center;
+    gap: 5rem;
+    text-align: center;
+  }
+
+  /* Languages: una sola columna en vez de 2/3 - 1/3 */
+  .languageGrid {
+    grid-template-columns: 1fr;
+  }
+  .containerF,
+  .containerI {
+    grid-column: 1; /* ambos ocupan la única columna */
+  }
+
+  /* Footer: apilado en vez de lado a lado */
+  .footer {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  .footerIzq {
+    align-items: center;
+  }
+}
+
+/* ==================================================
+  Tres puntos
+================================================== */
+#trespuntos{
+  background-color: #218FCC;
+}
+
+.portada {
+  padding: 40px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+}
+
+.imgPortada {
+  background-image: url('./assets/img/papel con clip.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 400px;
+  height: 450px; /* ajusta según la proporción real de tu imagen */
+  padding: 9rem 3rem 3rem 3rem; 
+}
+
+.papelTexto {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #342623;
+}
+
+.papelTexto p {
+  margin-bottom: 0.8rem;
+}
+
+/* imagenes de los proyetcos */
+.galeriaDestacada {
+  margin: 4rem auto;   /* antes: margin: 4rem 0; */
+  max-width: 700px;    /* mismo ancho que tu .imagenPrincipal, para que el contenedor no sea más ancho que la pantalla completa */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagenPrincipal {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: block;
+  max-height: 600px;   /* limita qué tan alta puede ser */
+  object-fit: contain;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 1rem;
+}
+
+.miniaturas img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.miniaturas img.activa,
+.miniaturas img:hover {
+  opacity: 1;
+}
+
+.websGrande {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 4rem 0;
+  align-items: center;
+}
+
+.webLink {
+  display: block;
+  max-width: 1200px; 
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.webLink img {
+  width: 100%; /* la imagen siempre llena su contenedor */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.webLink:hover img {
+  transform: scale(1.03);
+}
+
+.imgPortada {
+  transition: transform 0.2s ease-out;
+  transform-origin: top center;
+}
+
+
+/* ==================================================
+  Jimena
+================================================== */
+
+#jimena{
+  color: white;
+  background-color: #6A9254;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9; /* mantiene la proporción correcta del video */
+  margin: 4rem auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.videoContainer iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.badgePremiosContainer {
+  margin-top: 9rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.badgePremios {
+  background: #D9E1EB;
+  color: #218FCC;
+  font-family: "ABC monument";
+  font-weight: 700;
+  font-size: 1.6rem;
+  padding: 1rem 1.8rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
+  70%  { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Reutilizamos la animación de "agitar" que ya construimos antes */
+.badgePremios.agitando {
+  animation: agitar 0.5s ease;
+}
+
+@keyframes agitar {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-6px, -3px) rotate(-8deg); }
+  20%  { transform: translate(6px, 3px) rotate(8deg); }
+  30%  { transform: translate(-6px, 3px) rotate(-6deg); }
+  40%  { transform: translate(6px, -3px) rotate(6deg); }
+  50%  { transform: translate(-5px, 2px) rotate(-5deg); }
+  60%  { transform: translate(5px, -2px) rotate(5deg); }
+  70%  { transform: translate(-3px, 2px) rotate(-3deg); }
+  80%  { transform: translate(3px, -2px) rotate(3deg); }
+  90%  { transform: translate(-1px, 1px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.listaPremiosDesplegable {
+  max-height: 0;
+  overflow: hidden;
+  background: #D9E1EB;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.listaPremiosDesplegable.abierto {
+  max-height: 300px; /* suficiente para que quepan los premios, ajusta si agregas más */
+  padding: 0.5rem 0;
+}
+
+.listaPremiosDesplegable ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listaPremiosDesplegable li {
+  color: #342623;
+  font-family: "ABC monument";
+  font-size: 1.4rem;
+  padding: 0.8rem 1.8rem;
+  border-bottom: 1px solid rgba(52, 38, 35, 0.15);
+}
+
+.listaPremiosDesplegable li:last-child {
+  border-bottom: none;
+}
+
+.dobleImagen {
+  max-width: 1000px;
+  margin: 6rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* esto centra la imagen dentro del contenedor */
+}
+
+.dobleImagen img {
+  width: 80%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block; /* antes: flex — una imagen no necesita ser flex */
+  transition: transform 0.3s ease;
+}
+
+.dobleImagen img:hover {
+  transform: scale(1.03);
+}
+
+/* ==================================================
+  voltium
+================================================== */
+
+#voltium{
+  background-color: #245D4B;
+  color: white;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.videoContainer iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gitVoltium{
+  padding: 40px;
+}
+
+.linkGit {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 2rem auto; /* centrado debajo del video, con espacio arriba */
+  background-color: #218FCC;
+  color: #D9E1EB;
+  font-family: "ABC monument";
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.linkGit:hover {
+  opacity: 0.75;
+}
+
+/* ==================================================
+ keso
+================================================== */
+
+#keso{
+  color: #ffffff;
+  background-color: #218FCC;
+}
+.imgAvance {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 50px;
+  margin: 6rem auto;
+  display: block;
+  max-height: 600px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.imgAvance:hover {
+  transform: scale(1.03);
+}
