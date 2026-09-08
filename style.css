@@ -181,6 +181,10 @@ ul, li{
   display: block;
 }
 
+.link{
+  color: #D9E1EB ;
+}
+
 .btnCV {
   display: block;
   width: fit-content;
@@ -631,6 +635,7 @@ strong, b {
     font-size: 5rem; /* baja de 10rem */
     text-align: center;
   }
+
   .columnaIzquierda {
     height: auto; /* quita el alto fijo */
     align-items: center;
@@ -988,3 +993,4 @@ strong, b {
 .imgAvance:hover {
   transform: scale(1.03);
 }
+
