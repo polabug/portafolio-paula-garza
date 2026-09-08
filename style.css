@@ -996,6 +996,34 @@ strong, b {
 
 #construction{
   color: #245D4B;
-  background-color: white;
+  background-color: rgb(243, 229, 160);
   margin-top: 1rem;
+}
+
+.cintaContainer{
+  .cinta-container {
+    width: 100%;
+    height: 3rem;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.cinta-texto {
+    white-space: nowrap;
+    color: #245D4B;
+    margin: 0;
+    animation: deslizar 12s linear infinite;
+}
+
+@keyframes deslizar {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 }
