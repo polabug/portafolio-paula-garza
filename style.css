@@ -13,6 +13,9 @@ h1, h2, h3, h4, h5, p{
   font-weight: 400;
 }
 
+body{
+  overflow-x: clip;
+}
 
 
 /* ==================================================
@@ -575,12 +578,16 @@ strong, b {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
 }
 
 .footerIzq {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .footerNombre {
@@ -597,6 +604,7 @@ strong, b {
   color: #245D4B;
   text-decoration: none;
   font-size: 1.6rem;
+  overflow-wrap: anywhere;
 }
 
 .footerLinks a:hover {
@@ -745,7 +753,10 @@ strong, b {
 
 .miniaturas {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
+  max-width: 100%;
 }
 
 .miniaturas img {
@@ -772,15 +783,17 @@ strong, b {
 }
 
 .webLink {
+  position: relative; /* ancla el overlay a este bloque */
   display: block;
-  max-width: 1200px; 
+  max-width: 1200px;
   overflow: hidden;
   border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  width: 100%;
 }
 
 .webLink img {
-  width: 100%; /* la imagen siempre llena su contenedor */
+  width: 100%;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -789,10 +802,93 @@ strong, b {
   transform: scale(1.03);
 }
 
-.imgPortada {
-  transition: transform 0.2s ease-out;
-  transform-origin: top center;
+.webOverlay {
+  position: absolute;
+  inset: 0; /* cubre toda la imagen */
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFBFB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+
+.webLink:hover .webOverlay {
+  opacity: 1;
+}
+
+.webOverlay p {
+  font-size: 1.8rem;
+  max-width: 600px;
+  margin: 1rem 0 2rem 0;
+}
+
+.webOverlayCta {
+  font-family: "ABC monument";
+  font-weight: 700;
+  font-size: 1.8rem;
+  background-color: #218FCC;
+  color: #D9E1EB;
+  padding: 1rem 3rem;
+  transition: background-color 0.2s ease;
+}
+
+
+.webLink:hover .webOverlayCta:hover {
+  background-color: #1c78aa
+}
+
+.postWrap {
+  position: relative;
+  width: fit-content;   /* el contenedor mide lo mismo que la imagen */
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.postWrap .imagenPrincipal {
+  width: auto;
+  max-width: 100%;
+  max-height: 600px;
+  margin: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.postWrap:hover .imagenPrincipal {
+  transform: scale(1.03);
+}
+
+.postOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFBFB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.postWrap:hover .postOverlay {
+  opacity: 1;
+}
+
+.postOverlay p {
+  font-size: 1.8rem;
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
 
 
 /* ==================================================
@@ -994,6 +1090,17 @@ strong, b {
   transform: scale(1.03);
 }
 
+.websGrande,
+.galeriaDestacada,
+.dobleImagen {
+  padding: 0 4rem;
+}
+
+/* el video y la imagen de Keso tienen width: 100%, así que se les resta el margen */
+.videoContainer,
+.imgAvance {
+  width: calc(100% - 8rem);
+}
 
 @media (max-width: 768px) {
   .portada {
@@ -1007,13 +1114,86 @@ strong, b {
     max-width: 400px;
   }
 
-    .badgePremiosContainer {
+  .badgePremiosContainer {
     position: static;
     margin: 2.5rem auto 1.5rem auto;
-    top: auto;
-    left: auto;
     display: flex;
     justify-content: center;
+  }
+  .websGrande,
+  .galeriaDestacada,
+  .dobleImagen {
+    padding: 0 2rem;
+  }
 
+  .videoContainer,
+  .imgAvance {
+    width: calc(100% - 4rem);
+  }
+
+  .websGrande {
+    gap: 5rem;
+    margin: 6rem 0;
+  }
+
+  /* separación en la galería de posts */
+  .galeriaDestacada {
+    margin: 6rem auto;
+  }
+
+  .imagenPrincipal {
+    margin-bottom: 3rem;  /* espacio entre la imagen grande y las miniaturas */
+  }
+
+  .miniaturas {
+    gap: 1.5rem;          /* espacio entre miniaturas, también en la fila de abajo cuando bajan */
+  }
+}
+
+
+
+@media (max-width: 1100px) {
+  .portada {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .portada .columnaIzquierda {
+    height: auto;          /* quita los 500px fijos */
+    align-items: center;
+    text-align: center;
+  }
+
+  .portada .portafolioTitulo {
+    font-size: clamp(4rem, 9vw, 7rem); /* se achica solo con el ancho de la pantalla */
+  }
+
+  .imgPortada {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (hover: none) {
+  .webOverlay {
+    position: static;     /* el resumen queda debajo de la imagen */
+    opacity: 1;
+    background: #342623;
+    padding: 2rem;
+  }
+
+  .webOverlay p {
+    font-size: 1.4rem;
+  }
+
+  .postOverlay {
+    position: static;
+    opacity: 1;
+    padding: 2rem;
+    background:#245D4B ;
+  }
+  .postOverlay p {
+    font-size: 1.4rem;
   }
 }

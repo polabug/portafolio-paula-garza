@@ -77,18 +77,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Galería con miniaturas (solo existe en páginas de proyectos) ---
+    // --- Galería con miniaturas (solo existe en páginas de proyectos) ---
   const principal = document.getElementById('imagenPrincipal');
   if (principal) {
-    document.querySelectorAll('.miniaturas img').forEach(mini => {
+    const postTitulo = document.getElementById('postTitulo');
+    const postTexto = document.getElementById('postTexto');
+    const miniaturas = document.querySelectorAll('.miniaturas img');
+
+    miniaturas.forEach(mini => {
       mini.addEventListener('click', () => {
         principal.src = mini.src;
-        document.querySelectorAll('.miniaturas img').forEach(m => m.classList.remove('activa'));
+        principal.alt = mini.alt;
+
+        // el texto es opcional: si falta el elemento, la imagen igual cambia
+        if (postTitulo) postTitulo.textContent = mini.dataset.titulo || '';
+        if (postTexto) postTexto.textContent = mini.dataset.texto || '';
+
+        miniaturas.forEach(m => m.classList.remove('activa'));
         mini.classList.add('activa');
       });
     });
   }
-
 });
+
+
 
 const papel = document.querySelector('.imgPortada');
 if (papel) {
