@@ -62,13 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnDesign = document.querySelector('.btnDesign');
   if (btnDesign) {
-    btnDesign.addEventListener('click', () => agitarIconos('skillsContainer'));
+    btnDesign.addEventListener('click', () => agitarIconos('skillsDesign'));
   }
 
   const btnDev = document.querySelector('.btnDev');
   if (btnDev) {
     btnDev.addEventListener('click', () => agitarIconos('skillsDev'));
   }
+
+
+
+
+
+
 
   // --- Galería con miniaturas (solo existe en páginas de proyectos) ---
   const principal = document.getElementById('imagenPrincipal');
