@@ -369,9 +369,6 @@ strong, b {
   gap: 1rem;            
 }
 
-.skillsDev {
-  grid-template-rows: repeat(2, 1fr); /* 2 filas para el grupo de 6 íconos */
-}
 
 /* PREMIOS */
 .premios{
@@ -712,15 +709,109 @@ strong, b {
   color: white;
 }
 
+
+.toolsContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de ancho igual */
+  grid-template-rows: repeat(2, 1fr);   /* 3 filas de alto igual */
+  gap: 2rem;                              /* espacio entre íconos */                  /* fuerza que el contenedor sea cuadrado */
+  width: 400px;                           /* ajusta el tamaño total del cuadrado */
+  padding: 1rem;                        /* centra el contenedor en la página */
+  place-items: center; 
+  margin-top: 10rem; 
+
+}
+
+
+.toolsContainer img {
+  width: 60%;
+}
+
+#tituloBlanco{
+  color: white;
+  text-align: center;    /* centrado respecto al cuadro de íconos */
+  margin: 2rem 0 0 0;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+  
+
+}
+
+.pilaPapeles {
+  position: relative;
+  width: 560px;     /* 400 de la hoja del frente + 160 que se asoman */
+  height: 800px;
+  flex-shrink: 0;
+}
+
+.imgPortada,
+.toolsTres, .toolsDos  {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+  transition: translate 0.25s ease, transform 0.2s ease-out;
+}
+
+.imgPortada.al-frente,
+.toolsTres.al-frente, .toolsDos.al-frente {
+  z-index: 3;
+  cursor: default;
+}
+
 .imgPortada {
   background-image: url('./assets/img/papel con clip.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top center;
   width: 400px;
-  height: 450px; /* ajusta según la proporción real de tu imagen */
-  padding: 9rem 3rem 3rem 3rem; 
+  height: 450px;
+  padding: 9rem 3rem 3rem 3rem;
+  top: 0;
+  left: 0;
+  transform-origin: top center;
 }
+
+.toolsTres {
+  background-image: url('./assets/img/papel\ pinza\ cafe.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 480px;
+  height: 400px;
+  padding: 9rem 3rem 3rem 3rem;
+  margin: 0;          /* antes: 2rem */
+  top: 70px;          /* qué tan abajo asoma */
+  left: 80px;         /* qué tan a la derecha asoma */
+  transform: rotate(4deg);
+  transform-origin: top center;
+}
+
+.toolsDos {
+  background-image: url('./assets/img/xl\ pinza\ papel.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 480px;
+  height: 1000px;
+  padding: 10rem 3rem 3rem 3rem;
+  margin: 0;          /* antes: 2rem */
+  top: 10px;          /* qué tan abajo asoma */
+  left: 80px;         /* qué tan a la derecha asoma */
+  transform: rotate(4deg);
+  transform-origin: top center;
+  aspect-ratio: 1089 / 1038;    /* cámbialo por el ancho/alto reales de tu imagen */
+  background-size: 100% 50%;
+ 
+}
+
+
+
+
+
+
+
 
 .papelTexto {
   font-size: 1.3rem;
@@ -1108,11 +1199,6 @@ strong, b {
     align-items: center;
   }
 
-  .imgPortada {
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 400px;
-  }
 
   .badgePremiosContainer {
     position: static;
@@ -1148,6 +1234,26 @@ strong, b {
   .miniaturas {
     gap: 1.5rem;          /* espacio entre miniaturas, también en la fila de abajo cuando bajan */
   }
+
+   .badgePremiosContainer {
+    position: static;        /* deja de flotar en la esquina */
+    margin: 2rem auto 1rem;  /* reemplaza el margin-top de 9rem y centra */
+    width: fit-content;      /* mide solo lo que mide el badge */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centra el badge y la lista desplegable */
+  }
+
+  .listaPremiosDesplegable {
+    width: 100%;
+  }
+
+  .toolsContainer {
+  width: 100%;
+  max-width: 400px;
+}
+
+
 }
 
 
@@ -1158,6 +1264,30 @@ strong, b {
     align-items: center;
     gap: 3rem;
   }
+
+  .pilaPapeles {
+    width: 100%;
+    max-width: 480px;
+    height: 540px;
+    margin: 0 auto;      /* centrada */
+  }
+
+  .imgPortada {
+    width: calc(100% - 4rem);
+  }
+
+  .toolsTres {
+    left: 4rem;
+    width: calc(100% - 4rem);
+  }
+
+  .toolsDos {
+    left: 4rem;
+    width: calc(100% - 4rem);
+  }
+
+
+
 
   .portada .columnaIzquierda {
     height: auto;          /* quita los 500px fijos */
@@ -1173,7 +1303,26 @@ strong, b {
     width: 100%;
     max-width: 400px;
   }
+
+   .badgePremiosContainer {
+    position: static;        /* deja de flotar en la esquina */
+    margin: 2rem auto 1rem;  /* reemplaza el margin-top de 9rem y centra */
+    width: fit-content;      /* mide solo lo que mide el badge */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centra el badge y la lista desplegable */
+  }
+
+  .listaPremiosDesplegable {
+    width: 100%;
+  }
+
+
+  .toolsContainer {
+    width: 100%;
+  }
 }
+
 
 @media (hover: none) {
   .webOverlay {

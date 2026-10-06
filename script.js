@@ -101,9 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-const papel = document.querySelector('.imgPortada');
-if (papel) {
+document.querySelectorAll('.imgPortada, .toolsTres, .toolsDos').forEach(papel => {
   papel.addEventListener('mousemove', (e) => {
     const rect = papel.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -117,7 +115,9 @@ if (papel) {
   papel.addEventListener('mouseleave', () => {
     papel.style.transform = 'rotate(0deg)';
   });
-}
+});
+
+
 
 const badgePremios = document.getElementById('badgePremios');
 const listaPremiosDesplegable = document.getElementById('listaPremiosDesplegable');
@@ -133,3 +133,12 @@ if (badgePremios && listaPremiosDesplegable) {
     listaPremiosDesplegable.classList.toggle('abierto');
   });
 }
+
+ // --- Papeles apilados (Tres Puntos) ---
+  const hojas = document.querySelectorAll('.pilaPapeles .imgPortada, .pilaPapeles .toolsTres, .toolsDos');
+  hojas.forEach(hoja => {
+    hoja.addEventListener('click', () => {
+      hojas.forEach(h => h.classList.remove('al-frente'));
+      hoja.classList.add('al-frente');
+    });
+  });
