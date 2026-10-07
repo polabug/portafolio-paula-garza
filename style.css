@@ -96,10 +96,6 @@ body{
   opacity: 0.6;
 }
 
-.browser-tabs a:hover {
-  background: color-mix(in srgb, #342623 90%, white);
-}
-
 .browser-tabs a.active {
   z-index: 2;
 }
