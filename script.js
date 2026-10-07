@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.querySelectorAll('.imgPortada, .toolsTres, .toolsDos').forEach(papel => {
+document.querySelectorAll('.imgPortada, .toolsTres, .toolsDos, .toolsXl').forEach(papel => {
   papel.addEventListener('mousemove', (e) => {
     const rect = papel.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -135,7 +135,7 @@ if (badgePremios && listaPremiosDesplegable) {
 }
 
  // --- Papeles apilados (Tres Puntos) ---
-  const hojas = document.querySelectorAll('.pilaPapeles .imgPortada, .pilaPapeles .toolsTres, .toolsDos');
+  const hojas = document.querySelectorAll('.pilaPapeles .imgPortada, .pilaPapeles .toolsTres, .toolsDos, .toolsXl');
   hojas.forEach(hoja => {
     hoja.addEventListener('click', () => {
       hojas.forEach(h => h.classList.remove('al-frente'));
