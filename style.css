@@ -961,6 +961,7 @@ strong, b {
   overflow: hidden;
   border-radius: 6px;
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .postWrap .imagenPrincipal {
@@ -1220,6 +1221,30 @@ strong, b {
     width: 70%;
   }
 
+.gitKeso{
+  padding: 40px;
+}
+  
+.linkGitK {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 2rem auto; /* centrado debajo del video, con espacio arriba */
+  background-color: #6A9254;
+  color: #D9E1EB;
+  font-family: "ABC monument";
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.linkGitK:hover {
+  opacity: 0.75;
+}
 
 
 @media (max-width: 1100px) {
@@ -1440,8 +1465,6 @@ strong, b {
 }
 
 
-
-
 @media (hover: none) {
   .webOverlay {
     position: static;     /* el resumen queda debajo de la imagen */
@@ -1463,4 +1486,122 @@ strong, b {
   .postOverlay p {
     font-size: 1.4rem;
   }
+}
+
+/* ==================================================
+  Voltium y Keso: imágenes con descripción
+================================================== */
+#voltium .websGrande {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 4rem auto 20rem;
+}
+
+#keso .websGrande {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  max-width: 1000px;
+  margin: 4rem auto 12rem;
+}
+
+#voltium .webLink,
+#keso .webLink {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+}
+
+/* Voltium: branding + celular */
+#voltium .webLink:first-child { flex: 1 1 0; }
+#voltium .webLink:last-child  { flex: 0 1 240px; }
+
+/* Keso: celular + branding */
+#keso .webLink:first-child { flex: 0 1 240px; }
+#keso .webLink:last-child  { flex: 1 1 0; }
+
+@media (max-width: 800px) {
+  #voltium .websGrande,
+  #keso .websGrande {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin: 4rem auto 8rem;
+  }
+
+  /* imagen del branding: ya no se colapsa */
+  #voltium .webLink:first-child,
+  #keso .webLink:last-child {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* tarjeta del celular: más ancha que la imagen */
+  #voltium .webLink:last-child,
+  #keso .webLink:first-child {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 420px;
+    background: #342623;
+    padding-top: 2rem;
+  }
+
+  #voltium .webLink:last-child img,
+  #keso .webLink:first-child img {
+    width: 55%;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  /* títulos de la galería de Keso más chicos en celular */
+  .postOverlay .h3Titulo {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  :is(#trespuntos, #jimena, #voltium, #keso) .pilaPapeles {
+    display: grid;
+    height: auto;              /* la altura sale del contenido */
+    padding-bottom: 4rem;      /* holgura para la inclinación y la sombra */
+  }
+
+  /* todas las hojas ocupan la misma celda */
+  :is(#trespuntos, #jimena, #voltium, #keso) .pilaPapeles > * {
+    position: relative;
+    grid-area: 1 / 1;
+    top: 0;
+  }
+
+  /* cuánto baja la hoja de atrás (antes era su "top") */
+  :is(#trespuntos, #jimena, #voltium) .toolsTres { margin-top: 190px; }
+  #keso .toolsXl { margin-top: 80px; }
+
+  /* Keso: su hoja está escalada a 1.3 y se sale por abajo */
+  #keso .pilaPapeles {
+    padding-bottom: calc(0.2 * min(480px, 100vw - 80px) + 2rem);
+  }
+
+  #keso .portada {
+    gap: 0.5rem;                 /* antes 3rem: título más cerca de los papeles */
+  }
+
+  #keso .pilaPapeles {
+    margin-top: -1rem;           /* sube un poco toda la pila */
+    padding-bottom: calc(0.3 * min(480px, 100vw - 80px) + 3rem);   /* antes 0.2 y 2rem */
+  }
+
+  #keso .toolsXl {
+    margin-top: 40px;            /* antes 80px: la hoja de atrás asoma menos abajo del papel del frente */
+  }
+
+  #keso .portada + * {
+    margin-top: 3rem;            /* aire entre la hoja y el video */
+  }
+
+  
 }
