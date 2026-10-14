@@ -693,7 +693,7 @@ strong, b {
   Tres puntos
 ================================================== */
 #trespuntos{
-  background-color: #218FCC;
+  background-color: #6A9254;
 }
 
 .portada {
@@ -1010,7 +1010,7 @@ strong, b {
 
 #jimena{
   color: white;
-  background-color: #6A9254;
+  background-color: #245D4B;
 }
 
 .videoContainer {
@@ -1130,12 +1130,40 @@ strong, b {
   transform: scale(1.03);
 }
 
+#jimena .websGrande {
+  gap: 7rem;                    /* más espacio entre las dos fotos */
+}
+
+/* Wireframes (primera foto): más espacio arriba */
+#jimena .webLink:first-child {
+  margin-top: 5rem;
+}
+
+/* Mockup (segunda foto): más pequeña */
+#jimena .webLink:last-child {
+  max-width: 700px;             /* antes 1200px */
+}
+
+@media (max-width: 800px) {
+  #jimena .websGrande {
+    gap: 5rem;
+  }
+
+  #jimena .webLink:first-child {
+    margin-top: 3rem;
+  }
+
+  #jimena .webLink:last-child {
+    width: 85%;
+  }
+}
+
 /* ==================================================
   voltium
 ================================================== */
 
 #voltium{
-  background-color: #245D4B;
+  background-color: #218FCC;
   color: white;
 }
 
@@ -1163,7 +1191,7 @@ strong, b {
   display: block;
   width: fit-content;
   margin: 0 auto 2rem auto; /* centrado debajo del video, con espacio arriba */
-  background-color: #218FCC;
+  background-color: #6A9254;
   color: #D9E1EB;
   font-family: "ABC monument";
   font-size: 1.8rem;
@@ -1604,4 +1632,15 @@ strong, b {
   }
 
   
+}
+
+@media (max-width: 800px), (hover: none) {
+  .webOverlay p,
+  .postOverlay p {
+    width: 80%;          /* ocupa el 80% de la tarjeta, no todo el ancho */
+    max-width: 320px;    /* y nunca pasa de 320px */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
